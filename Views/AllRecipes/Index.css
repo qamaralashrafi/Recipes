@@ -1,0 +1,19 @@
+﻿namespace RecipeBook.Views.AllRecipes
+{
+    public class Index
+{
+    body
+{
+    background-color: #f5f7fa;
+    background-image: src("C:\Users\Qamar\OneDrive\Desktop\tuwaiq\Images\food.jpg");
+}
+
+.fas.fa-heart:hover {
+    color: #f44336 !important;
+}
+
+.fas.fa-share-alt:hover {
+    color: #0d47a1 !important;
+}
+    }
+}

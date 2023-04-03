@@ -1,0 +1,117 @@
+﻿@model IEnumerable<RecipeBook.Models.AllRecipes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@foreach (var item in Model)
+{
+    <div class="container">
+        <section class="mx-auto my-5" style="max-width: 23rem;">
+
+            <div class="card">
+                <div class="card-body d-flex flex-row">
+
+                    <div>
+                        <h5 class="card-title font-weight-bold mb-2">@item.RecipeName</h5>
+                        <p class="card-text"><i class="far fa-clock pe-2"></i>@item.RecipeDate</p>
+                    </div>
+                </div>
+                <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
+                    <img class="img-fluid" src=@item.RecipeImage
+                         alt="Card image cap" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <!--<p class="card-text collapse" id="collapseContent">
+                        item.RecipeIngredients
+                        item.RecipeSteps
+                    </p>-->
+                    <div class="d-flex justify-content-between">
+                        <p><b>Ingredients:</b>@item.RecipeIngredients
+                            <br><b>Steps:</b>@item.RecipeSteps
+                        </p>
+                        <!--<a class="btn btn-link link-danger p-md-1 my-1" data-mdb-toggle="collapse" href="#collapseContent"
+                           role="button" aria-expanded="false" aria-controls="collapseContent">Read more</a>-->
+                        <div>
+                            <i class="fas fa-share-alt text-muted p-md-1 my-1 me-2" data-mdb-toggle="tooltip"
+                               data-mdb-placement="top" title="Share this post"></i>
+                            <i class="fas fa-heart text-muted p-md-1 my-1 me-0" data-mdb-toggle="tooltip" data-mdb-placement="top"
+                               title="I like it"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+}
+
+
+<h1>Recipe Database</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeIngredients)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeSteps)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipeIngredients)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipeSteps)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipeTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipeDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipeImage)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+
+
